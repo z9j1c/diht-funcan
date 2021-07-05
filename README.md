@@ -1,2 +1,5 @@
-# diht-funcan
-DIHT Functional Analysis materials
+# Функциональный анализ. ФИВТ 2020-2021
+
+Конспект лекций двухсеместрового курса функционального анализа, прочитанных С.П. Коноваловым потоку ФИВТа (ФПМИ.Индустрия МФТИ) в 2020-2021гг.
+
+Материал взят из [видеозаписей](https://www.youtube.com/playlist?list=PL4_hYwCyhAvZW3XbXHuPMeRuaXaHG69Zi).

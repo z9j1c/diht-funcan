@@ -8,6 +8,40 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage[amsmath,thmmarks,framed]{ntheorem}
+\usepackage[style=0,ntheorem]{mdframed}
+\usepackage[skins]{tcolorbox}
+
+\mdfsetup{%
+    topline=false,
+    rightline=false,
+    bottomline=false,
+    linewidth=3pt,
+    innerleftmargin=15pt,
+    innerrightmargin=0pt,
+    skipabove=\baselineskip,
+    skipabove=1.2\baselineskip,
+}
+
+% Definition environment with title
+\theoremstyle{nonumberplain}
+\newtheorem{mdtitleddef}{Опр.}[subsection]
+\newenvironment{Titleddef}[1][]%
+   {\begin{mdframed}[linecolor=red]\begin{mdtitleddef}[#1]}
+   {\end{mdtitleddef}\end{mdframed}}
+
+% Definition environment
+\theoremstyle{nonumberplain}
+\newtheorem{mddef}{Опр.}[subsection]
+\newenvironment{Def}%
+    {\begin{mdframed}[linecolor=red]\begin{mddef}}
+    {\end{mddef}\end{mdframed}}
+
+% Gray box for proofs
+\newtcolorbox{Proofbox}{enhanced,sharp corners=all,colback=white,colframe=gray,toprule=0pt,bottomrule=0pt,leftrule=1pt,rightrule=1pt,overlay={
+    \draw[gray,line width=1pt] (frame.north west) -- ++(2cm,0pt);
+    \draw[gray,line width=1pt] (frame.south east) -- ++(-2cm,0pt);
+}}
 
 \title{Функциональный анализ}
 \author{Лектор: \href{http://www.mathnet.ru/rus/person14608}{Сергей Петрович Коновалов}}

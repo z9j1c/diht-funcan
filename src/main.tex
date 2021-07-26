@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
+\usepackage[a4paper,margin=0.5in,footskip=0.2in]{geometry}
 
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -9,9 +9,13 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage[amsmath,thmmarks,framed]{ntheorem}
 \usepackage[style=0,ntheorem]{mdframed}
 \usepackage[skins]{tcolorbox}
+
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
 
 \newcommand{\R}{{\mathbb{R}}}
 \newcommand{\K}{{\mathbb{K}}}
@@ -24,6 +28,12 @@
 \newcommand{\TS}{{ТП }} % Topological space
 
 \DeclareMathOperator{\Int}{Int}
+
+\newcommand\defeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
+
+\newtheorem{Theorem}{Теорема}[section]
+
+\newtheorem*{Statement}{Утверждение}
 
 \mdfsetup{%
     topline=false,
@@ -50,11 +60,20 @@
     {\begin{mdframed}[linecolor=red]\begin{mddef}}
     {\end{mddef}\end{mdframed}}
 
-% Gray box for proofs
-\newtcolorbox{Proofbox}{enhanced,sharp corners=all,colback=white,colframe=gray,toprule=0pt,bottomrule=0pt,leftrule=1pt,rightrule=1pt,overlay={
-    \draw[gray,line width=1pt] (frame.north west) -- ++(2cm,0pt);
-    \draw[gray,line width=1pt] (frame.south east) -- ++(-2cm,0pt);
-}}
+% Exercise environment
+\theoremstyle{nonumberplain}
+\newtheorem{mdexercise}{Упражнение.}[subsection]
+\newenvironment{Exercise}%
+    {\begin{mdframed}[linecolor=yellow]\begin{mdexercise}}
+    {\end{mdexercise}\end{mdframed}}
+
+% Proof environment
+\theoremstyle{nonumberplain}
+\newtheorem{mdproof}{Доказательство.}[subsection]
+\newenvironment{Proof}%
+    {\begin{mdframed}[linecolor=lightgray]\begin{mdproof}$ $\newline}
+    {$\blacksquare$\end{mdproof}\end{mdframed}\vspace{0.25cm}}
+
 
 \title{Функциональный анализ}
 \author{Лектор: \href{http://www.mathnet.ru/rus/person14608}{Сергей Петрович Коновалов}}
@@ -66,8 +85,8 @@
     \tableofcontents
     \newpage
 
-    \input{00_history.tex}
-    \clearpage
+    % \input{00_history.tex}
+    % \clearpage
     \input{01_spaces.tex}
     \clearpage
 \end{document}
